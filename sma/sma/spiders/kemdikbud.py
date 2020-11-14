@@ -24,13 +24,13 @@ class KemdikbudSpider(scrapy.Spider):
             col = row.css('td')
             if col is None or len(col) < 5:
                 continue
-            npsn        = col[0].css('a b::text').get() or ''
+            npsn        = col[1].css('a b::text').get() or ''
             if len(npsn) == 0:
                 continue
-            nama        = col[1].css('::text').get() or ''
-            alamat      = col[2].css('::text').get() or ''
-            kelurahan   = col[3].css('::text').get() or ''
-            status      = col[4].css('::text').get() or ''
+            nama        = col[2].css('::text').get() or ''
+            alamat      = col[3].css('::text').get() or ''
+            kelurahan   = col[4].css('::text').get() or ''
+            status      = col[5].css('::text').get() or ''
             yield {
                 'npsn'      : npsn.strip(),
                 'nama'      : nama.strip(),
