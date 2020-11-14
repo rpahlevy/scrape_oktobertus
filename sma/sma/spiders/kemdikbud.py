@@ -24,7 +24,7 @@ class KemdikbudSpider(scrapy.Spider):
             col = row.css('td')
             if col is None or len(col) < 5:
                 continue
-            npsn        = col[0].css('a::text').get() or ''
+            npsn        = col[0].css('a b::text').get() or ''
             if len(npsn) == 0:
                 continue
             nama        = col[1].css('::text').get() or ''
