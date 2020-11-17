@@ -4,7 +4,7 @@ import scrapy
 
 class LtmptSpider(scrapy.Spider):
     name = 'ltmpt'
-    allowed_domains = ['https://sidata-ptn.ltmpt.ac.id']
+    allowed_domains = ['sidata-ptn.ltmpt.ac.id']
     start_urls = ['https://sidata-ptn.ltmpt.ac.id/ptn_sb.php']
 
     def parse(self, response):
@@ -23,11 +23,11 @@ class LtmptSpider(scrapy.Spider):
             peminat         = col[4].css('::text').get() or 0
 
             yield {
-                'universitas': universitas,
+                'universitas': universitas.strip(),
                 'bidang': 'SAINTEK',
-                'prodi': prodi,
-                'daya_tampung': daya_tampung,
-                'peminat': peminat,
+                'prodi': prodi.strip(),
+                'daya_tampung': daya_tampung.strip(),
+                'peminat': peminat.strip(),
             }
 
         # soshum
@@ -39,9 +39,9 @@ class LtmptSpider(scrapy.Spider):
             peminat         = col[4].css('::text').get() or 0
 
             yield {
-                'universitas': universitas,
+                'universitas': universitas.strip(),
                 'bidang': 'SOSHUM',
-                'prodi': prodi,
-                'daya_tampung': daya_tampung,
-                'peminat': peminat,
+                'prodi': prodi.strip(),
+                'daya_tampung': daya_tampung.strip(),
+                'peminat': peminat.strip(),
             }
