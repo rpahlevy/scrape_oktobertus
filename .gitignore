@@ -1,2 +1,6 @@
 *.jl
+*.json
+*.sql
+*.xlsx
+*.zip
 __pycache__
