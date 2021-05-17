@@ -17,7 +17,7 @@ class KemdikbudSpider(scrapy.Spider):
 
     def parse_kota(self, response):
         for href in response.css('tr > td > a::attr(href)'):
-            yield response.follow(href.get(), callback=self.parse_kecamatan)
+            yield response.follow(href.get() + '&id=13', callback=self.parse_kecamatan)
 
     def parse_kecamatan(self, response):
         for row in response.css('tr'):
